@@ -5,15 +5,18 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # use the two pointer technique here
+        # set the ptr1 at the 0th index, this pointer will be used to traverse the array
+        # initially the second pointer will always be one step ahead of the first pointer
+        # check if the sum of the ptr1 + ptr2 is equal to target 
         res = []
-        for first_ele in range(len(nums)):
-            # first_ele = nums[i]
-            sec_ele = first_ele + 1
-            while sec_ele < len(nums):
-                if (nums[first_ele] + nums[sec_ele]) == target:
-                    res.extend([first_ele, sec_ele])
+        for ptr1 in range(len(nums)):
+            ptr2 = ptr1 + 1
+            while ptr2 < len(nums):
+                if (nums[ptr1] + nums[ptr2]) == target:
+                    res.extend([ptr1, ptr2])
                     return res
-                sec_ele += 1
+                ptr2 += 1
         
             
         
